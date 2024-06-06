@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main.mt-4 {
+    background-color: #f4f4f9; /* Change to the desired background color */
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    min-height: 400px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="text"],
+button {
+    display: block;
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 0 auto 10px; /* Center-align the input and button */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#translationResultContainer {
+    flex-grow: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center; /* Center-align the content */
+}
+
+#translationResult {
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto; /* Center-align the result */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    form, #translationResultContainer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.my-custom-jumbotron {
+    background-color: #f4f4f9 !important; /* Change background color */
+    padding: 1rem !important; /* Adjust padding */
+    /* Add more custom styles as needed */
+}
+
+.navbar-brand img {
+    max-height: 90px; /* Adjust the maximum height as needed */
+}
+
+

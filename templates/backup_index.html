@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Logarithm Translator</h1>
+        <form id="translateForm" class="mb-3">
+            <div class="form-group">
+                <label for="logarithmInput">Enter the logarithm:</label>
+                <input type="text" id="logarithmInput" name="logarithm" class="form-control" placeholder="e.g., log_2(8)" oninput="renderMath()">
+            </div>
+            <div class="form-group d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" onclick="addLogSubscript()">log<sub>x</sub></button>
+                <button type="button" class="btn btn-secondary" onclick="addLogBase10()">log</button>
+                <button type="button" class="btn btn-secondary" onclick="addNaturalLog()">ln</button>
+
+                <button type="button" class="btn btn-secondary" onclick="addFraction()">Fraction</button>
+                <button type="button" class="btn btn-secondary" onclick="addSquareRoot()">√</button>
+                <button type="submit" class="btn btn-primary">Translate</button>
+            </div>
+        </form>
+        <div id="translationResultContainer" class="mt-4">
+            <h2>Translation Result:</h2>
+            <div id="translationResult" class="p-3 border rounded" style="background-color: #f9f9f9;"></div>
+        </div>
+        <div id="mathInputPreview" class="mt-4">
+            <h2>Math Input Preview:</h2>
+            <div id="mathInput" class="p-3 border rounded" style="background-color: #f9f9f9;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('logarithmInput').addEventListener('input', function() {
+            renderMath();
+        });
+        
+
+        document.getElementById('translateForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting in the traditional way
+            var formData = new FormData(this);
+
+            fetch('/translate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('translationResult').innerText = "Translation: " + data.translation;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        function renderMath() {
+            var mathInput = document.getElementById('logarithmInput').value;
+            document.getElementById('mathInput').innerHTML = "\\(" + mathInput + "\\)";
+            MathJax.typeset(); // Render the math input
+        }
+
+        function addLogSubscript() {
+    var inputField = document.getElementById('logarithmInput');
+    var currentValue = inputField.value;
+    var cursorPos = inputField.selectionStart;
+    var newValue =
+        currentValue.substring(0, cursorPos) +
+        'log_{}()' +
+        currentValue.substring(cursorPos);
+    inputField.value = newValue;
+    renderMath();
+    inputField.focus();
+    inputField.setSelectionRange(cursorPos + 5, cursorPos + 5);
+}
+
+    function addLogSubscript() {
+        var inputField = document.getElementById('logarithmInput');
+        var currentValue = inputField.value;
+        var cursorPos = inputField.selectionStart;
+        var newValue =
+        currentValue.substring(0, cursorPos) +
+        'log_{}()' +
+        currentValue.substring(cursorPos);
+        inputField.value = newValue;
+        renderMath();
+        inputField.focus();
+        inputField.setSelectionRange(cursorPos + 5, cursorPos + 5);
+    }
+
+    function addFraction() {
+        var inputField = document.getElementById('logarithmInput');
+        var currentValue = inputField.value;
+        var cursorPos = inputField.selectionStart;
+        var newValue =
+            currentValue.substring(0, cursorPos) +
+            '\\frac{}{}' +
+            currentValue.substring(cursorPos);
+        inputField.value = newValue;
+        renderMath();
+        inputField.focus();
+        inputField.setSelectionRange(cursorPos + 6, cursorPos + 6);
+    }
+
+    function addSquareRoot() {
+        var inputField = document.getElementById('logarithmInput');
+        var currentValue = inputField.value;
+        var cursorPos = inputField.selectionStart;
+        var newValue =
+            currentValue.substring(0, cursorPos) +
+            '\\sqrt{}' +
+            currentValue.substring(cursorPos);
+        inputField.value = newValue;
+        renderMath();
+        inputField.focus();
+        inputField.setSelectionRange(cursorPos + 6, cursorPos + 6);
+    }
+    function addLogBase10() {
+    var inputField = document.getElementById('logarithmInput');
+    var currentValue = inputField.value;
+    var cursorPos = inputField.selectionStart;
+    var newValue =
+        currentValue.substring(0, cursorPos) +
+        '\\log_{10}()' +
+        currentValue.substring(cursorPos);
+    inputField.value = newValue;
+    renderMath();
+    inputField.focus();
+    inputField.setSelectionRange(cursorPos + 10, cursorPos + 10); // Adjust cursor position
+}
+
+function addNaturalLog() {
+    var inputField = document.getElementById('logarithmInput');
+    var currentValue = inputField.value;
+    var cursorPos = inputField.selectionStart;
+    var newValue =
+        currentValue.substring(0, cursorPos) +
+        '\\ln()' +
+        currentValue.substring(cursorPos);
+    inputField.value = newValue;
+    renderMath();
+    inputField.focus();
+    inputField.setSelectionRange(cursorPos + 4, cursorPos + 4); // Adjust cursor position
+}
+    </script>
+</body>
+</html>
