@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, jsonify # type: ignore
 import openai
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+
 # Set your OpenAI API key
-openai.api_key = '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'
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 def index():
     app_name = "Logarithm Translator"
     navigation = [
