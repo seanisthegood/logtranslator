@@ -34,6 +34,9 @@ def translate():
 @app.route('/about/')
 def about():
     return render_template('about.html')
+@app.route('/logblog/')
+def logblog():
+    return render_template('logblog.html')
 @app.route('/contact/')
 def contact():
     return render_template('contact.html')
