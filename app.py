@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
-def redirect_nonwww():
-    """Redirect non-www requests to www."""
-    if request.headers.get('Host') == 'logarithms.org':
-        return redirect(request.url.replace('http://', 'https://www.'), code=301)
-app.before_request(redirect_nonwww)
+# def redirect_nonwww():
+#     """Redirect non-www requests to www."""
+#     if request.headers.get('Host') == 'logarithms.org':
+#         return redirect(request.url.replace('http://', 'https://www.'), code=301)
+# app.before_request(redirect_nonwww)
 load_dotenv()
 
 # Set your OpenAI API key
