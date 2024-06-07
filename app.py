@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify # type: ignore
+from flask import Flask, render_template, request, jsonify,request# type: ignore
 import openai
 from dotenv import load_dotenv
 import os
@@ -10,6 +10,13 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 print(f"Loaded OpenAI API Key: {openai_api_key}")  # Debug statement
 openai.api_key = openai_api_key
+
+def redirect_nonwww():
+    """Redirect non-www requests to www."""
+    if request.headers.get('Host') == 'logarithms.org':
+        return redirect(request.url.replace('http://', 'https://www.'), code=301)
+
+
 def index():
     app_name = "Logarithm Translator"
     navigation = [
