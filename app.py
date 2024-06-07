@@ -4,9 +4,11 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
+load_dotenv()
 
-
-
+# Set your OpenAI API key
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = openai_api_key
 def index():
     app_name = "Logarithm Translator"
     navigation = [
