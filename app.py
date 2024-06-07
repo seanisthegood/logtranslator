@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify,request# type: ignore
+from flask import Flask, render_template, request, jsonify,redirect# type: ignore
 import openai
 from dotenv import load_dotenv
 import os
