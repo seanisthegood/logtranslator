@@ -13,11 +13,13 @@ main.mt-4 {
     background-color: #f4f4f9; /* Change to the desired background color */
 }
 
+
+
 .container {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 40px;
     width: 80%;
     max-width: 600px;
     min-height: 400px;
@@ -37,29 +39,48 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
+    margin-top: 5px; /* Add a small margin-top value here */
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
+    padding-top: 5px;
 }
 
-input[type="text"],
-button {
+input[type="text"] {
     display: block;
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin: 0 auto 10px; /* Center-align the input and button */
-    border: 1px solid #ddd;
+    width: 80%; /* Adjust this to your desired width */
+    padding: 5px;
+    margin: auto;
+    border: 5px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
+/*input[type="text"],
+button.btn {
+    display: block;
+    width: calc(100% - 22px);
+    padding: 5px;
+    margin: 0 auto 10px; 
+    border: 5px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+    margin-left: 10px; 
+}*/
 
-button {
+/* button.btn {
+    margin-top: 10px; 
+} */
+
+/* button {
     background-color: #5cb85c;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
+} */
 
 button:hover {
     background-color: #4cae4c;
@@ -67,7 +88,7 @@ button:hover {
 
 #translationResultContainer {
     flex-grow: 1;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
     width: 100%;
     padding: 10px;
@@ -82,7 +103,7 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 560px) {
     body {
         margin: 10px;
     }
@@ -91,12 +112,20 @@ button:hover {
         width: 100%;
         padding: 10px;
     }
+    .form-group button {
+        margin-bottom: 10px; /* Adjust as needed */
+    }
 
     form, #translationResultContainer {
         width: 100%;
         margin-bottom: 10px;
     }
+
+    .navbar-nav {
+        flex-direction: column; /* Stack nav links vertically */
+    }
 }
+
 
 .my-custom-jumbotron {
     background-color: #f4f4f9 !important; /* Change background color */
@@ -108,4 +137,7 @@ button:hover {
     max-height: 90px; /* Adjust the maximum height as needed */
 }
 
+.mt-5, .my-5 {
+    margin-top: 1rem !important; /* Change 2rem to your desired value */
+}
 

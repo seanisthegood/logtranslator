@@ -8,23 +8,25 @@
             <label for="logarithmInput">Enter the logarithm:</label>
             <input type="text" id="logarithmInput" name="logarithm" class="form-control" placeholder="e.g., log_2(8)" oninput="renderMath()">
         </div>
-        <div class="form-group d-flex justify-content-between">
-            <button type="button" class="btn btn-secondary" onclick="addLogSubscript()">log<sub>x</sub></button>
-            <button type="button" class="btn btn-secondary" onclick="addLogBase10()">log</button>
-            <button type="button" class="btn btn-secondary" onclick="addNaturalLog()">ln</button>
-            <button type="button" class="btn btn-secondary" onclick="addFraction()">Fraction</button>
-            <button type="button" class="btn btn-secondary" onclick="addSquareRoot()">√</button>
-            <button type="submit" class="btn btn-primary">Translate</button>
+        <div class="form-group justify-content-between">
+            <button type="button" class="btn btn-secondary me-1"  onclick="addLogSubscript()">log<sub>x</sub></button>
+            <button type="button" class="btn btn-secondary me-1" onclick="addLogBase10()">log</button>
+            <button type="button" class="btn btn-secondary me-1" onclick="addNaturalLog()">ln</button>
+            <button type="button" class="btn btn-secondary me-1" onclick="addFraction()">Fraction</button>
+            <button type="button" class="btn btn-secondary me-1" onclick="addSquareRoot()">√</button>
+            <button type="submit" class="btn btn-primary me-1">Translate</button>
         </div>
     </form>
-    <div id="translationResultContainer" class="mt-4">
-        <h2>Translation Result:</h2>
-        <div id="translationResult" class="p-3 border rounded" style="background-color: #f9f9f9;"></div>
-    </div>
     <div id="mathInputPreview" class="mt-4">
-        <h2>Math Input Preview:</h2>
+        <h3>Math Input Preview:</h3>
         <div id="mathInput" class="p-3 border rounded" style="background-color: #f9f9f9;"></div>
     </div>
+
+    <div id="translationResultContainer" class="mt-4">
+        <h3>Translation Result:</h3>
+        <div id="translationResult" class="p-3 border rounded" style="background-color: #f9f9f9;"></div>
+    </div>
+    
     <script>
         document.getElementById('logarithmInput').addEventListener('input', function() {
             renderMath();
